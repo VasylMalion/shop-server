@@ -1,0 +1,67 @@
+.sign-in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 50px);
+
+    .sign-in__container {
+        display: flex;
+        margin: 0px 20px;
+        align-items: center;
+        flex-direction: column;
+        background: #eeeeee;
+        border: 1px solid black;
+        border-radius: 20px;
+        max-width: 1000px;
+        padding: 10px;
+
+        .sign-in__title {
+            font-size: 31px;
+            color: #4a4a4a;
+        }
+
+        .sign-in__register {
+            display: block;
+            width: 100%;
+            background: #7eee40;
+            text-align: center;
+        }
+
+        .sign-in__form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            input {
+                outline: none;
+                width: 420px;
+                height: 30px;
+                font-size: 20px;
+                padding: 20px;
+                margin: 7px 0px;
+                background: #ffffff;
+                border: 1px solid #5d5f5d;
+                border-radius: 50px;
+                color: #5d5f5d;
+            }
+
+            button {
+                outline: none;
+                width: 420px;
+                height: 40px;
+                font-size: 20px;
+                background: #3e6be2;
+                border: 0px solid white;
+                border-radius: 50px;
+                color: #eeeeee;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.sign-in__hr {
+    height: 2px;
+    color: #040404;
+    background: #040404;
+}

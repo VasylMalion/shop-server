@@ -1,0 +1,41 @@
+.pop-up {
+    width: 300px;
+    height: 400px;
+    border: 2px solid rgb(165, 63, 63);
+    position: fixed;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    margin-left: -125px;
+    margin-top: -125px;
+    display: none;
+    border-radius: 10px;
+
+    .btn {
+        display: flex;
+        margin: 10px 0px 0px 120px;
+        cursor: pointer;
+    }
+}
+
+.close-btn {
+    width: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    height: 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: rgb(216, 8, 8);
+}
+
+.pop-up-label {
+    display: block;
+    padding: 7px;
+}
+
+.d-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

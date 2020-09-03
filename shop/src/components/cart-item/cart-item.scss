@@ -1,0 +1,46 @@
+@mixin cart-item () {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.cart-item {
+    &:focus {
+        outline: none;
+    }
+    @include cart-item;
+    outline: none;
+    font-size: 20px;
+    justify-items: center;
+    align-items: center;
+
+    .cart-item__operation {
+        &:focus {
+            outline: none;
+        }
+        outline: none;
+        display: grid;
+        grid-template-columns: 1fr 30px 1fr;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .cart-item__btn {
+        &:focus {
+            outline: none;
+        }
+        outline: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .cart-item__delete {
+        &:focus {
+            outline: none;
+        }
+        cursor: pointer;
+        display: flex;
+        font-size: 22px;
+        align-items: center;
+    }
+}

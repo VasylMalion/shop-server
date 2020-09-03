@@ -1,0 +1,15 @@
+.auth {
+    margin-top: 200px;
+    display: grid;
+    justify-content: center;
+}
+
+.auth .btn {
+    font-size: 40px;
+    height: 70px;
+    width: 300px;
+}
+
+.auth span {
+    font-size: 40px;
+}

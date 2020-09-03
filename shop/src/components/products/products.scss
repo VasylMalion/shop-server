@@ -1,0 +1,25 @@
+.products {
+    & .products__map {
+        display: flex;
+        margin: 10px;
+        flex-wrap: wrap;
+    }
+}
+
+.products__item {
+    margin: 10px;
+}
+
+.search {
+    display: flex;
+    margin: 20px;
+
+    & span {
+        font-size: 30px;
+        margin-right: 20px;
+    }
+
+    .search__input {
+        width: 600px;
+    }
+}

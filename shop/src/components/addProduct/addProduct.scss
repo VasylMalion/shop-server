@@ -1,0 +1,201 @@
+@mixin box-sizing($val) {
+    -webkit-box-sizing: $val;
+    -moz-box-sizing: $val;
+    box-sizing: $val;
+}
+
+@mixin user-select($val...) {
+    -webkit-user-select: $val;
+    -moz-user-select: $val;
+    -ms-user-select: $val;
+    user-select: $val;
+}
+
+@mixin box-shadow($shadows...) {
+    -webkit-box-shadow: $shadows;
+    box-shadow: $shadows;
+}
+
+@function inverse-side($side) {
+    @if      $side == top    { @return bottom; }
+    @else if $side == bottom { @return top; }
+    @else if $side == left   { @return right; }
+    @else if $side == right  { @return left; }
+}
+
+@mixin linear-gradient($gradientLine, $colorStops...) {
+    background-image: -webkit-linear-gradient($gradientLine, $colorStops);
+    background-image:    -moz-linear-gradient($gradientLine, $colorStops);
+    background-image:      -o-linear-gradient($gradientLine, $colorStops);
+    @if length($gradientLine) == 2 {
+        background-image:         linear-gradient(to #{inverse-side(nth($gradientLine, 1))} #{inverse-side(nth($gradientLine, 2))}, $colorStops);
+    } @else {
+        background-image:         linear-gradient(to #{inverse-side($gradientLine)}, $colorStops);
+    }
+}
+
+@mixin radial-gradient($gradient...) {
+    background-image: -webkit-radial-gradient($gradient);
+    background-image:    -moz-radial-gradient($gradient);
+    background-image:      -o-radial-gradient($gradient);
+    background-image:         radial-gradient($gradient);
+}
+
+@mixin transition($transition...) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+@mixin transition-property($properties...) {
+    -webkit-transition-property: $properties;
+    -moz-transition-property: $properties;
+    -o-transition-property: $properties;
+    transition-property: $properties;
+}
+
+@mixin transform($transform...) {
+    -webkit-transform: $transform;
+    -moz-transform: $transform;
+    -ms-transform: $transform;
+    -o-transform: $transform;
+    transform: $transform;
+}
+
+@mixin clearfix {
+    zoom: 1;
+
+    &:before, &:after {
+        content: '';
+        display: table;
+    }
+
+    &:after { clear: both; }
+}
+
+@mixin inline-block {
+    display: inline-block;
+    vertical-align: baseline;
+    zoom: 1;
+    *display: inline;
+    *vertical-align: auto;
+}
+
+@mixin hide-text() {
+    font: 0/0 serif;
+    text-shadow: none;
+    color: transparent;
+}
+
+@mixin hidpi {
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (min-resolution: 144dpi) {
+        @content;
+    }
+}
+
+.addProduct_container {
+    margin: auto;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    height: 90vh;
+}
+.container {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    width: 640px;
+}
+
+.addProduct {
+    position: relative;
+
+    padding: 20px 20px 20px;
+    width: 330px;
+    background: white;
+    border-radius: 3px;
+    @include box-shadow(0 0 200px rgba(white, .5), 0 1px 2px rgba(black, .3));
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: -8px; right: -8px; bottom: -8px; left: -8px;
+        z-index: -1;
+        background: rgba(black, .08);
+        border-radius: 4px;
+    }
+
+    h1 {
+        margin: -20px -20px 21px;
+        line-height: 40px;
+        font-size: 15px;
+        font-weight: bold;
+        color: #555;
+        text-align: center;
+        text-shadow: 0 1px white;
+        background: #f3f3f3;
+        border-bottom: 1px solid #cfcfcf;
+        border-radius: 3px 3px 0 0;
+        @include linear-gradient(top, whiteffd, #eef2f5);
+        @include box-shadow(0 1px #f5f5f5);
+    }
+
+    p { margin: 20px 0 0; }
+    p:first-child { margin-top: 0; }
+
+    input[type=text], input[type=password] { width: 278px; }
+
+    p.submit { text-align: right; }
+}
+
+input {
+    font-family: 'Lucida Grande', Tahoma, Verdana, sans-serif;
+    font-size: 14px;
+}
+
+input[type=text], input[type=password] {
+    margin: 5px;
+    padding: 0 10px;
+    width: 200px;
+    height: 34px;
+    color: #404040;
+    background: white;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 2px;
+    outline: 5px solid #eff4f7;
+    -moz-outline-radius: 3px;
+    @include box-shadow(inset 0 1px 3px rgba(black, .12));
+
+    &:focus {
+        border-color: #7dc9e2;
+        outline-color: #dceefc;
+        outline-offset: 0; // WebKit sets this to -1 by default
+    }
+}
+
+.btn {
+    cursor: pointer;
+    padding: 0 18px;
+    height: 29px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #527881;
+    text-shadow: 0 1px #e3f1f1;
+    background: #cde5ef;
+    border: 1px solid;
+    border-color: #b4ccce #b3c0c8 #9eb9c2;
+    border-radius: 16px;
+    outline: 0;
+    @include box-sizing(content-box);
+    @include linear-gradient(top, #edf5f8, #cde5ef);
+    @include box-shadow(inset 0 1px white, 0 1px 2px rgba(black, .15));
+
+    &:active {
+        background: #cde5ef;
+        border-color: #9eb9c2 #b3c0c8 #b4ccce;
+        @include box-shadow(inset 0 0 3px rgba(black, .2));
+    }
+}
